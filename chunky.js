@@ -4,7 +4,7 @@
 
 // If the array cannot be split evenly, the last sub-array will contain the remaining elements.
 
-function chunk(arr,int){
+function chunk(arr,int) {
     let res = []
     for(let i =0;i<arr.length;i++){
         res.push(arr.slice(0,int))
