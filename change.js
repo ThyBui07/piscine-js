@@ -4,7 +4,7 @@
 
 // set: a function that takes a key and a value. Update the value for the corresponding property of the sourceObject and return the value.
 
-function get(n){
+function get(n) {
     return sourceObject[n]   
 }
 const set = (a,b) => {
