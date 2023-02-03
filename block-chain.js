@@ -10,7 +10,7 @@
 // prev: the previous block.
 // chain: a function that accepts data as an argument, and creates the next block with it.
 
-function blockChain(data,prev = { index: 0, hash: '0' }){
+function blockChain(data,prev = { index: 0, hash: '0' }) {
     let obj  = {
         data,
         prev,
