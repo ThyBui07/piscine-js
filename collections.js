@@ -88,7 +88,6 @@ const superTypeOf = (e) => {
   let instances = { Set, Map, Array, Function }
 
   for (let key in instances) {
-    // console.log(key, instances[key])
     if (e instanceof instances[key]) return key
   }
 
