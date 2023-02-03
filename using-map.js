@@ -47,13 +47,13 @@
 
 function citiesOnly(arr) {
     let res = arr.map(ele => { return ele.city})
-    //console.log(res)
+   
     return res
 }
 
 function upperCasingStates(arr) {
     let res = arr.map(ele => { return CapitalizeFirstLetter(ele)})
-    //console.log(res)
+   
     return res
 
 }
