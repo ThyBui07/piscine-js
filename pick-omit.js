@@ -9,7 +9,7 @@ function pick(obj, args) {
     const obj2 = {}
     if (typeof args == 'string') {
         let keys = Object.keys(obj)
-        console.log('keys ', keys)
+        
        keys.forEach(key => {
         if (key == args) {
             obj2[key] = obj[key]
@@ -33,7 +33,7 @@ function omit(obj, args) {
     const obj2 = {}
     if (typeof args == 'string') {
         let keys = Object.keys(obj)
-        console.log('keys ', keys)
+       
        keys.forEach(key => {
         if (key != args) {
             obj2[key] = obj[key]
@@ -55,13 +55,11 @@ function omit(obj, args) {
 
             if (match == false) {
                 obj2[keys[i]] = obj[keys[i]]
-                console.log(obj2)
+                
             }
         }
        
     }
     return obj2
 }
-
-omit({ drill: 'bosh', grinders: 'DeWalt', saws: ' Makita' },['grinders', 'saws'])
 
