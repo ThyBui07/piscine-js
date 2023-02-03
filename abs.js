@@ -2,7 +2,7 @@
 
 // Create a function named abs that takes a number as an argument and returns its absolute value. You must make your own implementation. You must not use Math.abs().
 
-function isPositive(n){
+function isPositive(n) {
     return n > 0
 }
 function abs(n) {
