@@ -21,8 +21,6 @@ export const build = (x) => {
         document.body.append(block)
         block.innerHTML = i
         block.id = 'brick-'+ i
-        // console.log('this is i: ',i)
-        // console.log('counter:', counterFoundation)
         if (counterFoundation === 2) {
             block.dataset.foundation = true
         }
@@ -45,8 +43,6 @@ export const destroy = () => {
 }
 
 export const repair = (...reparations) => {
-    console.log(reparations)
-    // let bricks =  document.querySelectorAll('div[id^="brick-"]')
     for (let i = 0; i < reparations.length; i++) {
         let brick = document.getElementById(reparations[i])
         // console.log(brick)
