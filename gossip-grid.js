@@ -14,7 +14,7 @@
 import { gossips } from './gossip-grid.data.js'
 
 export const grid = () => {
-    console.log('grid')
+    
     //ranges
     let ranges = document.createElement("div");
     ranges.className= 'ranges'
