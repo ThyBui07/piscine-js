@@ -28,7 +28,7 @@ document.body.appendChild(link)
 const sortedPlaces = sortCoordinates()
 document.addEventListener("scroll", () => {
     selectPlace();
-    //console.log('window scroll y: ', window.scrollY)
+    
     scroll > window.scrollY
         ? (document.querySelector(".direction").innerHTML = "N")
         : (document.querySelector(".direction").innerHTML = "S");
@@ -37,7 +37,7 @@ document.addEventListener("scroll", () => {
 
 export const explore = () => {
 //    let placesSorted =  sortCoordinates(places)
-//     console.log(placesSorted)
+
    for (let i = 0; i < sortedPlaces.length; i++) {
         let section = document.createElement("section")
         section.style.background = "url(./where-do-we-go_images/" + sortedPlaces[i].name.split(',')[0].toLowerCase().split(' ').join('-') + ".jpg)"
@@ -46,12 +46,6 @@ export const explore = () => {
         section.style.backgroundRepeat = "no-repeat"
         section.style.width = window.innerWidth
         section.style.height = window.innerHeight
-        // section.style.position= "relative"
-        // section.style.color = placesSorted[i].color
-        //https://maps.google.com/?q=<lat>,<lng>
-        // section.href = encodeURI()
-        //30°39'16.55\"N 48°39'14.14\"E
-        //30%C2%B039%2716.55%22N%2C48%C2%B039%2714.14%22E
         
         document.body.appendChild(section)
     }
@@ -61,97 +55,8 @@ export const explore = () => {
     compass.innerHTML = ''
     document.body.appendChild(compass)
 
-    // const test =document.querySelectorAll(".location")
-    // test.forEach(t => {
-    //     console.log(t.textContent)
-    //     console.log(t.style.color)
-    // })
-    
 }
 
-// function sortCoordinates(places) {
-//     let northCountries = [];
-//     let southCountries = [];
-
-//    places.forEach(element => {
-//     let obj = { 
-//     lat: {
-//         gr1: '',
-//         gr2: '',
-//         gr3: '',
-//         gr4: ''
-//     }, 
-//     lng: {
-//         gr1: '',
-//         gr2: '',
-//         gr3: '',
-//         gr4: ''
-//     }
-//     }
-//     const lat = element.coordinates.split(" ")[0]
-//     const lng = element.coordinates.split(" ")[1]
-//     const latsplitBySymbol = lat.split(/\W+/)
-//     const lngsplitBySymbol = lng.split(/\W+/)
-
-//     // console.log(splitBySymbol)
-    
-//     obj.lat.gr1 = latsplitBySymbol[0]
-//     obj.lat.gr2 = latsplitBySymbol[1]
-//     obj.lat.gr3 = latsplitBySymbol[2] + "." + latsplitBySymbol[3]
-//     obj.lat.gr4 = latsplitBySymbol[4]
-
-//     obj.lng.gr1 = lngsplitBySymbol[0]
-//     obj.lng.gr2 = lngsplitBySymbol[1]
-//     obj.lng.gr3 = lngsplitBySymbol[2] + "." + lngsplitBySymbol[3]
-//     obj.lng.gr4 = lngsplitBySymbol[4]
-
-//     element['locale'] = obj
-//     if ( obj.lat.gr4 === 'N') {
-//         northCountries.push(element)
-//     } else {
-//         southCountries.push(element)
-//     }
-//    });
-
-//     // s =>> small to big
-//    southCountries.sort((obj1,obj2) => {
-//     let gr1 = compare(obj1.locale.lat.gr1, obj2.locale.lat.gr1)
-//     if (gr1 == 0) {
-//         //console.log('same 1')
-//         let gr2 = compare(obj1.locale.lat.gr2, obj2.locale.lat.gr2)
-//         if (gr2 == 0) {
-//             //console.log('same 2')
-//             let gr3 = compare(obj1.locale.lat.gr3, obj2.locale.lat.gr3)
-//             return gr3
-//         } else {
-//             return gr2
-//         }
-//     } else {
-//         return gr1
-//     }
-//    })
-//     // n =>> big to small
-//    northCountries.sort((obj1,obj2) => {
-//         let gr1 = compare(obj2.locale.lat.gr1, obj1.locale.lat.gr1)
-//         if (gr1 == 0) {
-//             console.log('same 1')
-//             let gr2 = compare(obj2.locale.lat.gr2, obj1.locale.lat.gr2)
-//             if (gr2 == 0) {
-//                 //console.log('same 2')
-//                 let gr3 = compare(obj2.locale.lat.gr3, obj1.locale.lat.gr3)
-//                 return gr3
-//             } else {
-//                 return gr2
-//             }
-//         } else {
-//             return gr1
-//         }
-//    })
-  
-
-//    let arr = northCountries.concat(southCountries)
-//    return arr
-// }
 
 function sortCoordinates () {
     const northPlaces = places.filter(place => place.coordinates.includes("N"))
@@ -174,7 +79,6 @@ function selectPlace() {
     const scroll = window.scrollY + sectionHeight / 2;
     const sectionIndex =  Math.round(window.scrollY / window.innerHeight)
     const place = sortedPlaces[sectionIndex];
-    //console.log(place)
         link.className = "location"
         link.style.color = place.color
      
@@ -184,9 +88,9 @@ function selectPlace() {
         link.style.transform = "translate(-50%, -50%)"
         link.style.zIndex = "2"
         link.textContent = place.name + '\n' + place.coordinates
-        console.log(place.coordinates)
+     
         link.href = urlEncodeCoordinates(place.coordinates)
-        console.log(link.href)
+    
         link.target = "_blank"
         link.rel = "noopener noreferrer"
         const convertedUrl = link.href
@@ -196,21 +100,11 @@ function selectPlace() {
         .join('"')
         .split('%20')
         .join(' ')
-
-        console.log(convertedUrl)
-
         const isValidCoordinates = convertedUrl.includes(link.textContent.split('\n')[1])
-
-        console.log(isValidCoordinates)
 }
 
 function urlEncodeCoordinates(coordinates) {
     const ggMURL = 'https://www.google.com/maps/place/'
-    // const degree = '%C2%B0'
-    // const singleQ = '\''
-    // const doubleQ = '%22'
-    // const comma = '%2C'
-    //37°53'17.43\"N 4°46'45.78\"W
     const replceCoor = coordinates
     .replaceAll(" ", "%20")
     .replaceAll("°", "%C2%B0")
