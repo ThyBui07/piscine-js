@@ -24,9 +24,6 @@ function filterEntries(obj, fn) {
     })
     return res
 }
-// console.log(filterEntries(groceriesCart, ([, v]) => v < 300)) // { onion: 230, garlic: 220 },)
-// console.log(filterEntries(groceriesCart, ([k, v]) => k)) // { oil: 500, onion: 230, garlic: 220, paprika: 480 }
-
 //mapEntries: changes the key, the value or both.
 function mapEntries(obj, fn) {
     let res = {}
@@ -37,7 +34,6 @@ function mapEntries(obj, fn) {
    
     return res
 }
-//console.log(mapEntries(filterEntries(groceriesCart, ([k, v]) => k=== 'onion'),([k, v]) => [`✔️${k}`, v - 100])) // { '✔️onion': 130 },
 
 function reduceEntries(obj, fn, start) {
     if (start === undefined){
@@ -53,13 +49,11 @@ function totalCalories (obj){
     //  + sign is used to convert returned value to a number
     // toFixed(1) method is used to format the number to 1 decimal place.
 }  
-// console.log(totalCalories(groceriesCart)) // 1921.4)
 
 //lowCarbs: that leaves only those items which have lower than 50 grams of carbs
 function lowCarbs(obj) {
     return filterEntries(obj, (key) => (nutritionDB[key[0]].carbs /100 ) * key[1] < 50)
 }
-// console.log(lowCarbs(groceriesCart)) // { oil: 500, onion: 230 }
 
 //cartTotal: that will give you the right amount of calories, proteins... and all the other items in your grocery cart.
 function cartTotal(obj) {
@@ -74,4 +68,3 @@ function cartTotal(obj) {
     return result
   });
 }
-// console.log(cartTotal(groceriesCart)) 
