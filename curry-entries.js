@@ -53,26 +53,53 @@
 const defaultCurry = (obj1) => {
     let res = {}
     return function (obj2) {
-      for (const [key, value] of Object.entries(obj1)) { if (obj2[key] === undefined) { res[key] = value } else { res[key] = obj2[key] } }
-      for (const [key, value] of Object.entries(obj2)) { if (obj1[key] === undefined) { res[key] = value } }; return res
+      for (const [key, value] of Object.entries(obj1)) { 
+        if (obj2[key] === undefined) { 
+          res[key] = value 
+        } else { 
+          res[key] = obj2[key] 
+        } 
+      }
+      for (const [key, value] of Object.entries(obj2)) { 
+        if (obj1[key] === undefined) {
+           res[key] = value 
+          } 
+        }; 
+        return res
     }
   }
   
   const mapCurry = (fn) => {
     let res = {}
-    return function (obj) { for (const [key, value] of Object.entries(obj)) { let temp = fn([key, value]); res[temp[0]] = temp[1] }; return res }
+    return function (obj) { 
+      for (const [key, value] of Object.entries(obj)) {
+         let temp = fn([key, value]); 
+         res[temp[0]] = temp[1] 
+        }; 
+        return res }
   }
   
-
   const reduceCurry = (fn) => {
     return function (obj, acc) {
-      for (const [key, value] of Object.entries(obj)) { if (acc === undefined) { acc = fn([key, value]) }; acc = fn(acc, [key, value]) }; return acc
+      for (const [key, value] of Object.entries(obj)) {
+         if (acc === undefined) { 
+          acc = fn([key, value]) 
+        }; 
+        acc = fn(acc, [key, value]) 
+      }; 
+      return acc
     }
   }
   
   const filterCurry = (fn) => {
     let res = {}
-    return function (obj) { for (const [key, value] of Object.entries(obj)) { if (fn([key, value])) { res[key] = obj[key] } }; return res }
+    return function (obj) { 
+      for (const [key, value] of Object.entries(obj)) {
+         if (fn([key, value])) {
+           res[key] = obj[key] 
+          } 
+        }; 
+        return res }
   }
   
   const reduceScore = (el, initVal) => {
