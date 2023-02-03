@@ -15,13 +15,6 @@ const samePerson = person;
 let clone1 = JSON.parse(JSON.stringify(person));
 let clone2 = JSON.parse(JSON.stringify(person));
 
-// console.log(samePerson)
-// console.log(clone1)
-// console.log(clone2)
 
 person.age++;
 person.country = 'FR'
-
-// console.log(samePerson)
-// console.log(clone1)
-// console.log(clone2)
