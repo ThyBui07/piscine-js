@@ -75,4 +75,3 @@ function modulo(a, b) {
     }
     return result
 }
-console.log(divide(7,2))
