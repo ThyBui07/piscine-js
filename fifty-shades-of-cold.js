@@ -41,9 +41,7 @@ export const choseShade = (textContent) => {
         let contains = elems[i].classList.contains(textContent)
         if(!contains){
             elems[i].classList.remove(currentStyle)
-            // console.log('after remove: ',elems[i].classList)
             elems[i].classList.add(textContent)
-            // console.log('after add: ',elems[i].classList)
 
         } 
     }
