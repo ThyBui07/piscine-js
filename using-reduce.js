@@ -16,8 +16,6 @@
 function adder(arr,x =0){
     //sum = x; current = arr[0]
     let result = arr.reduce(function(sum, current) {
-        // console.log('this is sum:',sum)
-        // console.log('this is current:',current)
         return sum + current;
       }, x)
       return result
