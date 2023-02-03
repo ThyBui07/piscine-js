@@ -44,7 +44,7 @@ function filter1DistinctVowel(arr) {
     const regex = /[aeiouAEIOU]/g
     let res = arr.filter(word => { 
         let match = word.match(regex);
-        // console.log(match)
+        
         match[0] = match[0].toLowerCase()
         const allEqual = arr => arr.every( v => v === arr[0])
         if (allEqual(match) == true) {
