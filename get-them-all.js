@@ -38,7 +38,7 @@ export const getBonannoPisano = () => {
 export const getActive = () => {
     let arr = []
     let active = Array.from(document.getElementsByClassName('classical active'))
-    console.log(active)
+    
     let nonActive = Array.from(document.querySelectorAll('a.classical:not(.active)'))
     
 
@@ -55,9 +55,6 @@ export const getArchitects = () => {
 
     //let nonArchitects = Array.from(document.getElementsByTagName('span'))
 
-    console.log(architects)
-    console.log(nonArchitects)
-
     arr.push(architects)
     arr.push(nonArchitects)
     return arr
@@ -70,7 +67,7 @@ export const getClassical = () => {
     let modern = Array.from(document.getElementsByClassName('modern'))
     let baroque = Array.from(document.getElementsByClassName('baroque'))
     let notClassical = modern.concat(baroque)
-    console.log(notClassical)
+    
 
     arr.push(classical)
     arr.push(notClassical)
