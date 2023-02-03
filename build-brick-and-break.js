@@ -38,7 +38,6 @@ export const build = (x) => {
 
 export const destroy = () => {
     let bricks =  document.querySelectorAll('div[id^="brick-"]')
-    console.log(bricks)
     bricks[bricks.length-1].remove()
 }
 
