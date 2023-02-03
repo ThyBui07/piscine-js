@@ -24,7 +24,6 @@ function createPartitions(target, maxValue, suffix, partitions) {
     createPartitions(n, n, [], partitions);
     partitions = partitions.filter(item => item.length != 0 )
     partitions = partitions.filter(item => item.length != 1 )
-    // console.log(partitions)
     return partitions
   }
   
